@@ -1,10 +1,11 @@
 #generates simple battleship board
 import numpy as np
 import random as rd
+import math
 
 def genShape(board, sNum):
     while True:
-        x, y = rd.randint(0, int(len(board)-sNum/2)), rd.randint(0, int(len(board)-sNum/2))
+        x, y = rd.randint(0, int(len(board) - math.ceil(sNum/2))), rd.randint(0, int(len(board[0]) - math.ceil(sNum/2)))
         free = True
         locarr = []
         for i in range(sNum):
@@ -19,6 +20,7 @@ def genShape(board, sNum):
             for loc in locarr:
                 board[loc[0]][loc[1]] = "#"
             break
+        break
 
 def genMap():
     board = np.empty([15, 15])
