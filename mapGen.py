@@ -2,48 +2,34 @@
 import numpy as np
 import random as rd
 
-#4 ships
-    #1 Carrier : 2x3 (shipNum 6)
-    #2 Battleship : 2x2 (shipNum 4)
-    #1 Cruiser : 2x1 (shipNum 2)
-
-def genShip(board, shipNum):
-    letter = {
-        6: "X",
-        4: "O",
-        2: "A"
-    }
+def genShape(board, sNum):
     while True:
-        x, y = rd.randint(0, 8), rd.randint(0, 8)
-        if x > 7 or y > 6:
-            continue
+        x, y = rd.randint(0, int(len(board)-sNum/2)), rd.randint(0, int(len(board)-sNum/2))
         free = True
         locarr = []
-        for i in range(shipNum):
+        for i in range(sNum):
             if i % 2 == 0:
                 X = x + 1
             else: X = x
             Y = y + int(i / 2)
             if (board[X][Y] != " "):
                 free = False
-                continue
             locarr.append([X, Y])
         if free:
             for loc in locarr:
-                board[loc[0]][loc[1]] = letter[shipNum]
+                board[loc[0]][loc[1]] = "#"
             break
 
-def genBoard():
-    board = np.empty([9, 9])
+def genMap():
+    board = np.empty([15, 15])
     board = board.astype(np.str_)
 
     for x in range(len(board)):
         for y in range(len(board[0])):
             board[x][y] = " "
-    
-    genShip(board, 6)
-    genShip(board, 4)
-    genShip(board, 4)
-    genShip(board, 2)
+
+    for x in range(20):
+        sNum = rd.randint(0, len(board))
+        genShape(board, sNum)
 
     return board
