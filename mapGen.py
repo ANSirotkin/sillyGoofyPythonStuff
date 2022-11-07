@@ -5,7 +5,7 @@ import math
 
 def genShape(board, sNum):
     while True:
-        x, y = rd.randint(0, int(len(board) - math.ceil(sNum/2))), rd.randint(0, int(len(board[0]) - math.ceil(sNum/2)))
+        x, y = rd.randint(0, int(len(board) - 1 - math.ceil(sNum/2))), rd.randint(0, int(len(board[0]) - math.ceil(sNum/2)))
         free = True
         locarr = []
         for i in range(sNum):
@@ -31,7 +31,7 @@ def genMap():
             board[x][y] = " "
 
     for x in range(20):
-        sNum = rd.randint(0, len(board))
+        sNum = rd.randint(1, len(board) - 1)
         genShape(board, sNum)
 
     return board
