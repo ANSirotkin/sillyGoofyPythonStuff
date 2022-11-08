@@ -41,8 +41,7 @@ def mapTester(iter):
 
 # mapTester(100)
 
-map = genMap()
-for x in map:
+for x in genMap():
     for y in x:
         print(str(y) + " ", end="")
     print()

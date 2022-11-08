@@ -4,9 +4,7 @@ import random as rd
 import mapGen as mgen
 
 def game():
-    for x in range(3):
-        print(mgen.genMap())
-        print("\n\n")
+    pass
 
 def gLoop():
     pass
