@@ -9,6 +9,7 @@ t = turtle.Turtle()
 #set stuffs
 turtle.colormode(255)
 turtle.hideturtle()
+turtle.title("Amogus")
 
 def amogBody():
     t.begin_fill()
