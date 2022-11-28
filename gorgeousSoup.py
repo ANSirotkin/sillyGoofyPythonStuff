@@ -9,3 +9,5 @@ else:
 	content = response.text
 
 soup = BeautifulSoup(response.content, 'html.parser')
+
+print(soup.prettify())
